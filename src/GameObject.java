@@ -1,12 +1,12 @@
 import java.awt.Graphics;
 
 public class GameObject {
-	int x;
-	int y;
+	double x;
+	double y;
 	int width;
 	int height;
 
-	public GameObject(int xd, int yd, int widthd, int heightd) {
+	public GameObject(double xd, double yd, int widthd, int heightd) {
 		x = xd;
 		y = yd;
 		width = widthd;
@@ -20,6 +20,6 @@ public class GameObject {
 	}
 
 	public void draw(Graphics g) {
-		g.fillRect(x, y, 100, 100);
+		g.fillRect((int)Math.floor(x), (int)Math.floor(y), 100, 100);
 	}
 }

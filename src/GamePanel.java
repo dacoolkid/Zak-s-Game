@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GamePanel extends JPanel implements ActionListener, KeyListener {
+public class GamePanel extends JPanel implements ActionListener, KeyListener, MouseListener {
 
 	Timer time;
 	final int MENU_STATE = 0;
@@ -17,6 +18,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
 	Font titleFont;
+	Hand handy = new Hand(250,250,50,50);
 
 	public GamePanel() {
 		time = new Timer(1000 / 60, this);
@@ -72,7 +74,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void updateGameState() {
-
+		handy.update();
+		handy.setPos(getMousePosition());
 	}
 
 	public void updateEndState() {
@@ -82,19 +85,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void drawMenuState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.setFont(titleFont);
-		g.drawString("text", 200, 400);
+		g.drawString("DISTRACTIONS", 200, 400);
 		g.setColor(Color.BLUE);
 
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
 		g.setColor(Color.BLACK);
 		g.setFont(titleFont);
-		g.drawString("text", 200, 400);
+		g.drawString("DISTRACTIONS", 200, 400);
 	}
 
 	public void drawGameState(Graphics g) {
+		
 		g.setColor(Color.BLACK);
 
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
+		handy.draw(g);
 	}
 
 	public void drawEndState(Graphics g) {
@@ -126,6 +131,36 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
