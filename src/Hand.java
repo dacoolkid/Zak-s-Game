@@ -12,13 +12,16 @@ public class Hand extends GameObject{
 	public void draw(Graphics g) {
 		g.setColor(Color.BLUE);
 
-        g.fillRect((int)Math.floor(x), (int)Math.floor(y), width, height);
-
+		 g.drawImage(GamePanel.handImg,(int) x,(int) y, width, height, null);
 
 	}
 	public void setPos(Point p) {
+		if(p != null) {
 		this.x = p.getX();
-		this.y = p.getY();
-	}
+		
 	
+		this.y = p.getY();
+		
+	}
+	}
 }
