@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	int currentState = MENU_STATE;
 	Font titleFont;
 	Hand handy = new Hand(250,250,50,50);
+	ObjectManager manny = new ObjectManager(handy);
 	public static BufferedImage handImg;
 	public GamePanel() {
 		time = new Timer(1000 / 60, this);
@@ -50,6 +51,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 			updateMenuState();
 
 		} else if (currentState == GAME_STATE) {
+			
 
 			updateGameState();
 
@@ -90,7 +92,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	}
 
 	public void updateGameState() {
-		handy.update();
+	
+		manny.update();
 		handy.setPos(getMousePosition());
 	}
 
@@ -115,7 +118,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		g.setColor(Color.BLACK);
 
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
-		handy.draw(g);
+		manny.draw(g);
 	}
 
 	public void drawEndState(Graphics g) {
