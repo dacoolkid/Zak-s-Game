@@ -23,14 +23,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	int currentState = MENU_STATE;
 	Font titleFont;
 	Hand handy = new Hand(250,250,50,50);
-	ObjectManager manny = new ObjectManager(handy);
+	Pen penny = new Pen(250,250,50,50);
+	ObjectManager manny = new ObjectManager(handy, penny);
+	
 	public static BufferedImage handImg;
+	public static BufferedImage pencilImg;
 	public GamePanel() {
 		time = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		try {
 
 			handImg = ImageIO.read(this.getClass().getResourceAsStream("pixil-frame-0.png"));
+			pencilImg = ImageIO.read(this.getClass().getResourceAsStream("jesusmcchrist.png"));
+					
 
     } catch (IOException e) {
 
@@ -46,6 +51,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+	
 		if (currentState == MENU_STATE) {
 
 			updateMenuState();
@@ -116,8 +122,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	public void drawGameState(Graphics g) {
 		
 		g.setColor(Color.BLACK);
-
+		
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
+
 		manny.draw(g);
 	}
 
@@ -155,7 +162,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(handy.x + "h" + handy.y);
 	}
 
 	@Override

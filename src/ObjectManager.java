@@ -9,7 +9,9 @@ public class ObjectManager {
 		handy.update();
 	}
 	public void draw(Graphics g) {
-		
+	handy.draw(g);
+	
+	
 	}
 	
 }
