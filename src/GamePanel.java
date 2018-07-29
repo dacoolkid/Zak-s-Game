@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	int currentState = MENU_STATE;
 	Font titleFont;
 	Hand handy = new Hand(250,250,50,50);
-	Pen penny = new Pen(250,250,50,50);
+	Pen penny = new Pen(300,300,50,50);
 	ObjectManager manny = new ObjectManager(handy, penny);
 	
 	public static BufferedImage handImg;
@@ -100,6 +100,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	public void updateGameState() {
 	
 		manny.update();
+		manny.manageEnemies();
 		handy.setPos(getMousePosition());
 	}
 

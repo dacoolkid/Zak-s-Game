@@ -5,6 +5,7 @@ public class GameObject {
 	double y;
 	int width;
 	int height;
+	boolean isAlive = true;
 
 	public GameObject(double xd, double yd, int widthd, int heightd) {
 		x = xd;

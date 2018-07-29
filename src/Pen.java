@@ -8,13 +8,12 @@ public class Pen extends GameObject{
 	}
 	public void update() {
 		super.update();
+		y++;
+
 	}
 	public void draw(Graphics g) {
 	g.setColor(Color.BLUE);
-	
-	
-	
-		 g.drawImage(GamePanel.pencilImg,x,y, width, height, null);
+	g.drawImage(GamePanel.pencilImg,(int)x,(int)y, width, height, null);
 
 	}
 	public void setPos(Point p) {
@@ -26,5 +25,4 @@ public class Pen extends GameObject{
 		
 	}
 	}
-}
 }
