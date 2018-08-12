@@ -6,10 +6,11 @@ public class ObjectManager {
 	Hand handy;
 	Pen penny;
 	long enemyTimer = 0;
-	int enemySpawnTime;
+	int enemySpawnTime = 1000;
+	int score = 0;
 	public void manageEnemies(){
 	        if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
-	                addPen(new Pen(new Random().nextInt(Distraction.WIDTH), 0, 50, 50));
+	                addPen(new Pen(25,new Random().nextInt(Distraction.HEIGHT), 50, 50));
 	
 	enemyTimer = System.currentTimeMillis();
 	        }
@@ -38,12 +39,29 @@ public class ObjectManager {
 		pens.add(pencil);
 		
 	}
+	public void checkCollision() {
+	
+		for(Pen p : pens){
+			
+	        if(handy.collisionBox.intersects(p.collisionBox)){
+	        	System.out.println("poopie");
+	        		p.isAlive = false;
+
+	        }
+
+	}
+	}
 	public void purgeObjects() {
 		for(int i = 0; i < pens.size(); i++) {
-			if(pens.get(i).isAlive = false) {
+			if(pens.get(i).isAlive == false) {
 				pens.remove(i);
+			
 			}
 			}
 		}
-}
+	public int getScore() {
+		return score;
+	}
+	}
+
 

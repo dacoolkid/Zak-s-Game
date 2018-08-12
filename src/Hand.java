@@ -7,6 +7,7 @@ public class Hand extends GameObject{
 		super(px, py, pheight, pwidth);
 	}
 	public void update() {
+		
 		super.update();
 	}
 	public void draw(Graphics g) {
