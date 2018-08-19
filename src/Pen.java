@@ -8,7 +8,7 @@ public class Pen extends GameObject{
 	}
 	public void update() {
 		super.update();
-		y++;
+		x++;
 
 	}
 	public void draw(Graphics g) {

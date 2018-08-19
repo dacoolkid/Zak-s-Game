@@ -5,6 +5,7 @@ import java.util.Random;
 public class ObjectManager {
 	Hand handy;
 	Pen penny;
+	girl girly;
 	long enemyTimer = 0;
 	int enemySpawnTime = 1000;
 	int score = 0;
@@ -16,19 +17,25 @@ public class ObjectManager {
 	        }
 		}
 	ArrayList<Pen> pens = new ArrayList<Pen>();
-	public ObjectManager(Hand h, Pen p) {
+	public ObjectManager(Hand h, Pen p, girl g) {
 		handy = h;
 		penny = p;
+		girly = g;
 	}
 	public void update() {
 		handy.update();
 		penny.update();
+		girly.update();
+		for(int i = 0; i < pens.size();i++) {
+			pens.get(i).update();
+		}
 		manageEnemies();
 
 	}
 	public void draw(Graphics g) {
 	handy.draw(g);
 	penny.draw(g);
+	girly.draw(g);
 	for(int i = 0; i < pens.size(); i++) {
 		pens.get(i).draw(g);
 	}

@@ -24,10 +24,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	Font titleFont;
 	Hand handy = new Hand(250,250,50,50);
 	Pen penny = new Pen(300,300,50,50);
-	ObjectManager manny = new ObjectManager(handy, penny);
+	girl girly = new girl(275,100,250,250);
+	ObjectManager manny = new ObjectManager(handy, penny, girly);
 	
 	public static BufferedImage handImg;
 	public static BufferedImage pencilImg;
+	public static BufferedImage girlImg;
 	public GamePanel() {
 		time = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 48);
@@ -35,7 +37,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 
 			handImg = ImageIO.read(this.getClass().getResourceAsStream("pixil-frame-0.png"));
 			pencilImg = ImageIO.read(this.getClass().getResourceAsStream("jesusmcchrist.png"));
-					
+			girlImg = ImageIO.read(this.getClass().getResourceAsStream("peepee.png"));
 
     } catch (IOException e) {
 
@@ -104,6 +106,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		manny.checkCollision();
 		manny.purgeObjects();
 		handy.setPos(getMousePosition());
+		girly.update();
+		
 	}
 
 	public void updateEndState() {
@@ -129,6 +133,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
 
 		manny.draw(g);
+		girly.draw(g);
 	}
 
 	public void drawEndState(Graphics g) {
