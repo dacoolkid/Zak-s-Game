@@ -6,6 +6,7 @@ public class ObjectManager {
 	Hand handy;
 	Pen penny;
 	girl girly;
+	Phone phony;
 	long enemyTimer = 0;
 	int enemySpawnTime = 1000;
 	int score = 0;
@@ -17,17 +18,23 @@ public class ObjectManager {
 	        }
 		}
 	ArrayList<Pen> pens = new ArrayList<Pen>();
-	public ObjectManager(Hand h, Pen p, girl g) {
+	ArrayList<Phone> phonez = new ArrayList<Phone>();
+	public ObjectManager(Hand h, Pen p, girl g, Phone ph) {
 		handy = h;
 		penny = p;
 		girly = g;
+		phony = ph;
 	}
 	public void update() {
 		handy.update();
 		penny.update();
 		girly.update();
+		phony.update();
 		for(int i = 0; i < pens.size();i++) {
 			pens.get(i).update();
+		}
+		for(int i = 0; i < phonez.size();i++) {
+			phonez.get(i).update();
 		}
 		manageEnemies();
 
@@ -36,8 +43,12 @@ public class ObjectManager {
 	handy.draw(g);
 	penny.draw(g);
 	girly.draw(g);
+	phony.draw(g);
 	for(int i = 0; i < pens.size(); i++) {
 		pens.get(i).draw(g);
+	}
+	for(int i = 0; i < phonez.size(); i++) {
+		phonez.get(i).draw(g);
 	}
 	}
 
@@ -46,6 +57,11 @@ public class ObjectManager {
 		pens.add(pencil);
 		
 	}
+	public void addPhone(Phone phone) {
+		phonez.add(phone);
+	}
+
+	
 	public void checkCollision() {
 	
 		for(Pen p : pens){
@@ -55,8 +71,22 @@ public class ObjectManager {
 	        		p.isAlive = false;
 
 	        }
+	    	for(Phone ph : phonez){
+				
+		        if(handy.collisionBox.intersects(p.collisionBox)){
+		        	System.out.println("oopie");
+		        		ph.isAlive = false;
 
+		        }
 	}
+		for(Pen p : pens){
+			if(girly.collisionBox.intersects(p.collisionBox)){
+	        	System.out.println("dookie");
+	        		p.isAlive = false;
+
+	        }
+
+		}
 	}
 	public void purgeObjects() {
 		for(int i = 0; i < pens.size(); i++) {

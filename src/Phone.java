@@ -1,15 +1,28 @@
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 
 public class Phone extends GameObject{
-	int speed;
-public Phone(int x, int y, int height, int width, int speed) {
-	super(x,y,height,width);
-	this.speed = speed;
-}
-public void update() {
+	public Phone(double px, double py, int pheight, int pwidth) {
+		super(px, py, pheight, pwidth);
+	}
+	public void update() {
+		super.update();
+		x++;
+
+	}
+	public void draw(Graphics g) {
+	g.setColor(Color.BLUE);
+	g.drawImage(GamePanel.phoneImg,(int)x,(int)y, width, height, null);
+
+	}
+	public void setPos(Point p) {
+		if(p != null) {
+		this.x = p.getX();
+		
 	
-}
-public void draw(Graphics g) {
-	
-}
+		this.y = p.getY();
+		
+	}
+	}
 }

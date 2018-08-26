@@ -38,6 +38,7 @@ public class Distraction {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
+		frame.setTitle("I love fortnite so much.  It is all I do even though i lose every single game");
 		game.startGame();
 
 	}
