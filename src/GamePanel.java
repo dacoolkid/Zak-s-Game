@@ -26,7 +26,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	Pen penny = new Pen(300,300,50,50);
 	girl girly = new girl(275,100,250,250);
 	Phone phony = new Phone(300,300,50,50);
-	ObjectManager manny = new ObjectManager(handy, penny, girly);
+	ObjectManager manny = new ObjectManager(handy, penny, girly,phony);
 	
 	public static BufferedImage handImg;
 	public static BufferedImage pencilImg;

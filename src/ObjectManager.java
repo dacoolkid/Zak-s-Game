@@ -79,13 +79,14 @@ public class ObjectManager {
 
 		        }
 	}
-		for(Pen p : pens){
-			if(girly.collisionBox.intersects(p.collisionBox)){
+		for(Pen ps : pens){
+			if(girly.collisionBox.intersects(ps.collisionBox)){
 	        	System.out.println("dookie");
-	        		p.isAlive = false;
+	        		ps.isAlive = false;
 
 	        }
 
+		}
 		}
 	}
 	public void purgeObjects() {
