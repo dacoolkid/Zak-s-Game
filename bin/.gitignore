@@ -3,6 +3,7 @@
 /GamePanel.class
 /Hand.class
 /Head.class
+/HealthBar.class
 /ObjectManager.class
 /Pen.class
 /Phone.class
@@ -12,4 +13,3 @@
 /peepee.png
 /pixil-frame-0.png
 /poopoo.png
-/HealthBar.class

@@ -8,13 +8,21 @@ public class ObjectManager {
 	girl girly;
 	Phone phony;
 	long enemyTimer = 0;
+	long phoneTimer = 0;
+	int phoneSpawnTime = 1000;
 	int enemySpawnTime = 1000;
 	int score = 0;
 	public void manageEnemies(){
 	        if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
 	                addPen(new Pen(25,new Random().nextInt(Distraction.HEIGHT), 50, 50));
+	                
 	
 	enemyTimer = System.currentTimeMillis();
+	        }
+	        if(System.currentTimeMillis() - phoneTimer >= phoneSpawnTime) {
+	        	addPhone(new Phone(25,new Random().nextInt(Distraction.HEIGHT),50,50));
+	        	
+	        	phoneTimer = System.currentTimeMillis();
 	        }
 		}
 	ArrayList<Pen> pens = new ArrayList<Pen>();
@@ -29,6 +37,7 @@ public class ObjectManager {
 		handy.update();
 		penny.update();
 		girly.update();
+
 		phony.update();
 		for(int i = 0; i < pens.size();i++) {
 			pens.get(i).update();
@@ -73,7 +82,7 @@ public class ObjectManager {
 	        }
 	    	for(Phone ph : phonez){
 				
-		        if(handy.collisionBox.intersects(p.collisionBox)){
+		        if(handy.collisionBox.intersects(ph.collisionBox)){
 		        	System.out.println("oopie");
 		        		ph.isAlive = false;
 
@@ -90,9 +99,15 @@ public class ObjectManager {
 		}
 	}
 	public void purgeObjects() {
-		for(int i = 0; i < pens.size(); i++) {
+				for(int i = 0; i < pens.size(); i++) {
 			if(pens.get(i).isAlive == false) {
 				pens.remove(i);
+			
+			}
+			}
+		for(int i = 0; i <  phonez.size(); i++) {
+			if(phonez.get(i).isAlive == false) {
+				phonez.remove(i);
 			
 			}
 			}
