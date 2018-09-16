@@ -80,6 +80,7 @@ public class ObjectManager {
 	        		p.isAlive = false;
 
 	        }
+		}
 	    	for(Phone ph : phonez){
 				
 		        if(handy.collisionBox.intersects(ph.collisionBox)){
@@ -96,7 +97,7 @@ public class ObjectManager {
 	        }
 
 		}
-		}
+		
 	}
 	public void purgeObjects() {
 				for(int i = 0; i < pens.size(); i++) {

@@ -104,8 +104,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 
 	public void updateGameState() {
 	
-		//manny.update();
-		manny.manageEnemies();
+		manny.update();
+		//manny.manageEnemies();
 		manny.checkCollision();
 		manny.purgeObjects();
 		handy.setPos(getMousePosition());
