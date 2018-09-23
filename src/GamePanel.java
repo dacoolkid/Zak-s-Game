@@ -26,7 +26,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	Pen penny = new Pen(300,300,50,50);
 	girl girly = new girl(275,100,250,250);
 	Phone phony = new Phone(300,300,50,50);
-	ObjectManager manny = new ObjectManager(handy, penny, girly,phony);
+	HealthBar bar = new HealthBar(500,20,45,80);
+	ObjectManager manny = new ObjectManager(handy, penny, girly,phony,bar);
 	
 	public static BufferedImage handImg;
 	public static BufferedImage pencilImg;
@@ -134,7 +135,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		g.setColor(Color.WHITE);
 		
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
-
+		
+		
 		manny.draw(g);
 		girly.draw(g);
 	}

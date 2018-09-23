@@ -1,4 +1,4 @@
-import java.awt.Graphics;
+ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -7,6 +7,7 @@ public class ObjectManager {
 	Pen penny;
 	girl girly;
 	Phone phony;
+	HealthBar bary;
 	long enemyTimer = 0;
 	long phoneTimer = 0;
 	int phoneSpawnTime = 1000;
@@ -27,17 +28,18 @@ public class ObjectManager {
 		}
 	ArrayList<Pen> pens = new ArrayList<Pen>();
 	ArrayList<Phone> phonez = new ArrayList<Phone>();
-	public ObjectManager(Hand h, Pen p, girl g, Phone ph) {
+	public ObjectManager(Hand h, Pen p, girl g, Phone ph, HealthBar b) {
 		handy = h;
 		penny = p;
 		girly = g;
 		phony = ph;
+		bary = b;
 	}
 	public void update() {
 		handy.update();
 		penny.update();
 		girly.update();
-
+		bary.update();
 		phony.update();
 		for(int i = 0; i < pens.size();i++) {
 			pens.get(i).update();
@@ -50,9 +52,10 @@ public class ObjectManager {
 	}
 	public void draw(Graphics g) {
 	handy.draw(g);
-	penny.draw(g);
+	penny.draw(g);.g.
 	girly.draw(g);
 	phony.draw(g);
+	bary.draw(g);
 	for(int i = 0; i < pens.size(); i++) {
 		pens.get(i).draw(g);
 	}
