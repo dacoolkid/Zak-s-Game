@@ -28,6 +28,13 @@ public class HealthBar extends GameObject{
 		this.y = p.getY();
 		
 	}
+		
+	}
+	public void ShrinkBar() {
+		height = height - 10;
+		if(height <= 0) {
+			GamePanel.currentState++;
+		}
 	}
 }
 

@@ -8,6 +8,7 @@ public class ObjectManager {
 	girl girly;
 	Phone phony;
 	HealthBar bary;
+	DistractoMeter distry;
 	long enemyTimer = 0;
 	long phoneTimer = 0;
 	int phoneSpawnTime = 1000;
@@ -28,12 +29,13 @@ public class ObjectManager {
 		}
 	ArrayList<Pen> pens = new ArrayList<Pen>();
 	ArrayList<Phone> phonez = new ArrayList<Phone>();
-	public ObjectManager(Hand h, Pen p, girl g, Phone ph, HealthBar b) {
+	public ObjectManager(Hand h, Pen p, girl g, Phone ph, HealthBar b, DistractoMeter d) {
 		handy = h;
 		penny = p;
 		girly = g;
 		phony = ph;
 		bary = b;
+		distry = d;
 	}
 	public void update() {
 		handy.update();
@@ -41,6 +43,7 @@ public class ObjectManager {
 		girly.update();
 		bary.update();
 		phony.update();
+		distry.update();
 		for(int i = 0; i < pens.size();i++) {
 			pens.get(i).update();
 		}
@@ -52,10 +55,11 @@ public class ObjectManager {
 	}
 	public void draw(Graphics g) {
 	handy.draw(g);
-	penny.draw(g);.g.
+	penny.draw(g);
 	girly.draw(g);
 	phony.draw(g);
 	bary.draw(g);
+	distry.draw(g);
 	for(int i = 0; i < pens.size(); i++) {
 		pens.get(i).draw(g);
 	}
@@ -81,6 +85,7 @@ public class ObjectManager {
 	        if(handy.collisionBox.intersects(p.collisionBox)){
 	        	System.out.println("poopie");
 	        		p.isAlive = false;
+	        		bary.ShrinkBar();
 
 	        }
 		}
@@ -89,6 +94,8 @@ public class ObjectManager {
 		        if(handy.collisionBox.intersects(ph.collisionBox)){
 		        	System.out.println("oopie");
 		        		ph.isAlive = false;
+		        		distry.GrowBar();
+
 
 		        }
 	}
@@ -96,7 +103,7 @@ public class ObjectManager {
 			if(girly.collisionBox.intersects(ps.collisionBox)){
 	        	System.out.println("dookie");
 	        		ps.isAlive = false;
-
+	        		
 	        }
 
 		}
@@ -112,7 +119,7 @@ public class ObjectManager {
 		for(int i = 0; i <  phonez.size(); i++) {
 			if(phonez.get(i).isAlive == false) {
 				phonez.remove(i);
-			
+		
 			}
 			}
 		}

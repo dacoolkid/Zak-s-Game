@@ -17,17 +17,18 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements ActionListener, KeyListener, MouseListener {
 
 	Timer time;
-	final int MENU_STATE = 0;
-	final int GAME_STATE = 1;
-	final int END_STATE = 2;
-	int currentState = MENU_STATE;
+	static final int MENU_STATE = 0;
+	static final int GAME_STATE = 1;
+	static final int END_STATE = 2;
+	static int currentState = MENU_STATE;
 	Font titleFont;
 	Hand handy = new Hand(250,250,50,50);
 	Pen penny = new Pen(300,300,50,50);
 	girl girly = new girl(275,100,250,250);
 	Phone phony = new Phone(300,300,50,50);
 	HealthBar bar = new HealthBar(500,20,45,80);
-	ObjectManager manny = new ObjectManager(handy, penny, girly,phony,bar);
+	DistractoMeter meter = new DistractoMeter(580,20,0,80);
+	ObjectManager manny = new ObjectManager(handy, penny, girly,phony,bar,meter);
 	
 	public static BufferedImage handImg;
 	public static BufferedImage pencilImg;
