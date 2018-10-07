@@ -11,9 +11,10 @@ public class ObjectManager {
 	DistractoMeter distry;
 	long enemyTimer = 0;
 	long phoneTimer = 0;
-	int phoneSpawnTime = 1000;
+	int phoneSpawnTime = 2000;
 	int enemySpawnTime = 1000;
 	int score = 0;
+	
 	public void manageEnemies(){
 	        if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
 	                addPen(new Pen(25,new Random().nextInt(Distraction.HEIGHT), 50, 50));
@@ -95,8 +96,14 @@ public class ObjectManager {
 		        	System.out.println("oopie");
 		        		ph.isAlive = false;
 		        		distry.GrowBar();
+		        		score++;
 
-
+		        }
+		        if(girly.collisionBox.intersects(ph.collisionBox)){
+ 		        	System.out.println("scoopy");
+ 		        		ph.isAlive = false;
+ 		        		bary.ShrinkBar();
+ 		        		
 		        }
 	}
 		for(Pen ps : pens){
