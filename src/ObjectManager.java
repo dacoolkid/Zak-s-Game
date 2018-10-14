@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class ObjectManager {
 	Hand handy;
-	Pen penny;
+	
 	girl girly;
-	Phone phony;
+	
 	HealthBar bary;
 	DistractoMeter distry;
 	long enemyTimer = 0;
@@ -28,22 +28,23 @@ public class ObjectManager {
 	        	phoneTimer = System.currentTimeMillis();
 	        }
 		}
+
 	ArrayList<Pen> pens = new ArrayList<Pen>();
 	ArrayList<Phone> phonez = new ArrayList<Phone>();
-	public ObjectManager(Hand h, Pen p, girl g, Phone ph, HealthBar b, DistractoMeter d) {
+	public ObjectManager(Hand h, girl g, HealthBar b, DistractoMeter d) {
 		handy = h;
-		penny = p;
+		
 		girly = g;
-		phony = ph;
+		
 		bary = b;
 		distry = d;
 	}
 	public void update() {
 		handy.update();
-		penny.update();
+		
 		girly.update();
 		bary.update();
-		phony.update();
+		
 		distry.update();
 		for(int i = 0; i < pens.size();i++) {
 			pens.get(i).update();
@@ -56,9 +57,9 @@ public class ObjectManager {
 	}
 	public void draw(Graphics g) {
 	handy.draw(g);
-	penny.draw(g);
+	
 	girly.draw(g);
-	phony.draw(g);
+	
 	bary.draw(g);
 	distry.draw(g);
 	for(int i = 0; i < pens.size(); i++) {

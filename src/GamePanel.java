@@ -23,12 +23,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	static int currentState = MENU_STATE;
 	Font titleFont;
 	Hand handy = new Hand(250,250,50,50);
-	Pen penny = new Pen(300,300,50,50);
+	
 	girl girly = new girl(275,100,250,250);
-	Phone phony = new Phone(300,300,50,50);
+	
 	HealthBar bar = new HealthBar(500,20,45,80);
 	DistractoMeter meter = new DistractoMeter(580,20,0,80);
-	ObjectManager manny = new ObjectManager(handy, penny, girly,phony,bar,meter);
+	ObjectManager manny = new ObjectManager(handy, girly,bar,meter);
 	
 	public static BufferedImage handImg;
 	public static BufferedImage pencilImg;
@@ -146,6 +146,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		g.setColor(Color.RED);
 
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
+		g.setColor(Color.BLACK);
+		g.setFont(titleFont);
+		g.drawString("GAME OVER", 220, 250);
+		g.drawString("Score: " + manny.getScore(), 280, 320);
 	}
 
 	@Override
