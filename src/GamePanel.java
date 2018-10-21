@@ -120,15 +120,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 	}
 
 	public void drawMenuState(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.setFont(titleFont);
-		g.drawString("DISTRACTIONS", 200, 400);
-		g.setColor(Color.BLUE);
-
+		
+		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, Distraction.WIDTH, Distraction.HEIGHT);
+		g.setColor(Color.GREEN);
+		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 100));
+		g.drawString("DISTRACTIONS", -5, 200);
 		g.setColor(Color.BLACK);
-		g.setFont(titleFont);
-		g.drawString("DISTRACTIONS", 200, 400);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 45));
+		g.drawString("Dont let the phones hit the face!", 100, 400);
+		g.drawString("And don't touch the pencils!", 140, 450);
+		
 	}
 
 	public void drawGameState(Graphics g) {
@@ -150,6 +152,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		g.setFont(titleFont);
 		g.drawString("GAME OVER", 220, 250);
 		g.drawString("Score: " + manny.getScore(), 280, 320);
+		
 	}
 
 	@Override
@@ -166,6 +169,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 			if (currentState > END_STATE) {
 
 				currentState = MENU_STATE;
+				meter.height += 100;
+				 
 
 			}
 		}

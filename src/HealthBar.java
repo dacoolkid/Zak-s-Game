@@ -3,10 +3,10 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 public class HealthBar extends GameObject{
-	
+	boolean noSwitch = false;
 	public HealthBar(int hx, int hy, int hheight, int hwidth) {
 		super(hx, hy, hheight, hwidth);
-		
+	
 		}
 	public void update() {
 		super.update();
@@ -32,9 +32,18 @@ public class HealthBar extends GameObject{
 	}
 	public void ShrinkBar() {
 		height = height - 10;
-		if(height <= 0) {
+		if(height <= 0 ) {
 			GamePanel.currentState++;
 		}
 	}
-}
+	public void GrowBar() {
+		height = 100;
+		noSwitch = true;
+		if(height <= 0) {
+			noSwitch = false;
+		}
+		}
+		
+	}
+
 
