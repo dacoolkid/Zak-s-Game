@@ -167,9 +167,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener, Mo
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			currentState++;
 			if (currentState > END_STATE) {
-
-				currentState = MENU_STATE;
+				meter.isAlive = true;
+				meter.GrowBar();
+				
 				meter.height += 100;
+				System.out.println(meter.height);
+				bar = new HealthBar(500,20,45,80);
+				currentState = MENU_STATE;
+				
 				 
 
 			}
